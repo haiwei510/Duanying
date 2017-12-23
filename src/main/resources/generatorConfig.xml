@@ -26,15 +26,15 @@
 		</javaModelGenerator>
 		
 		<!-- 生成映射文件的包名和位置-->
-		<sqlMapGenerator targetPackage="com.yulong.ew.financial.dao.financereport.mapping" targetProject="EW.Financial">
+		<sqlMapGenerator targetPackage="com.duanying.dao" targetProject="Duanying">
 			<property name="enableSubPackages" value="true"/>
 		</sqlMapGenerator>
 		<!-- 生成DAO的包名和位置-->
-		<javaClientGenerator type="XMLMAPPER" targetPackage="com.yulong.ew.financial.dao.financereport.aaa" targetProject="EW.Financial">
+		<javaClientGenerator type="XMLMAPPER" targetPackage="com.duanying.dao.users" targetProject="Duanying">
 			<property name="enableSubPackages" value="true"/>
 		</javaClientGenerator>
 		
 		<!-- 要生成哪些表-->
-		<table tableName="EW_EF_REPORT_CASH_YEAR" domainObjectName="EfReportCashYear" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+		<table tableName="t_user" domainObjectName="EfReportCashYear" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
 	</context>
 </generatorConfiguration>
