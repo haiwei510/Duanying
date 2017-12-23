@@ -5,7 +5,6 @@ import java.util.List;
 import org.apache.ibatis.annotations.Select;
 
 import com.duanying.model.User;
-import com.duanying.model.Users;
 
 public interface UserMapper {
 	int deleteByPrimaryKey(String userId);
