@@ -20,7 +20,7 @@
 		</javaTypeResolver>
 		
 		<!-- 生成模型的包名和位置-->		   
-		<javaModelGenerator targetPackage="com.duanying.model" targetProject="EW.Financial">
+		<javaModelGenerator targetPackage="com.duanying.model" targetProject="Duanying">
 			<property name="enableSubPackages" value="true"/>
 			<property name="trimStrings" value="true"/>
 		</javaModelGenerator>
@@ -35,6 +35,6 @@
 		</javaClientGenerator>
 		
 		<!-- 要生成哪些表-->
-		<table tableName="t_user" domainObjectName="EfReportCashYear" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+		<table tableName="t_user" domainObjectName="users" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
 	</context>
 </generatorConfiguration>
