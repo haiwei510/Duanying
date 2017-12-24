@@ -14,7 +14,7 @@ import com.duanying.service.UserServiceI;
 @Controller
 public class TestController {
 
-	// 注入userService
+	// 注入userService增加了注释，测试一下
 	@Resource
 	private UserServiceI userService;
 
