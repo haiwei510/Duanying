@@ -5,20 +5,43 @@
 	version="3.0">
 
 	<display-name>Archetype Created Web Application</display-name>
-	
-	
- 	<listener>  
-        <description>Spring监听器</description>  
-        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>  
-    </listener>  
-    <!-- ContextLoaderListener初始化Spring上下文时需要使用到的contextConfigLocation参数 -->  
-    <context-param>  
-        <param-name>contextConfigLocation</param-name>  
-        <!-- 配置spring.xml和applicationContext.xml这两个配置文件的位置，固定写法 -->  
-        <param-value>classpath:applicationContext.xml</param-value>  
-    </context-param>  
-	
-	
+
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<async-supported>true</async-supported>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<!-- 配置spring.xml和applicationContext.xml这两个配置文件的位置，固定写法 -->
+		<param-value>classpath:applicationContext.xml</param-value>
+	</context-param>
+
+	<listener>
+		<description>Spring监听器</description>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<!-- ContextLoaderListener初始化Spring上下文时需要使用到的contextConfigLocation参数 -->
+
+	<!-- 让springMVC的前端控制器拦截所有请求 -->
+	<servlet-mapping>
+		<servlet-name>springmvc</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+
 	<!-- 定义springMVC的前端控制器 -->
 	<servlet>
 		<servlet-name>springmvc</servlet-name>
@@ -29,13 +52,6 @@
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
-	<!-- 让springMVC的前端控制器拦截所有请求 -->
-	<servlet-mapping>
-		<servlet-name>springmvc</servlet-name>
-		<url-pattern>/</url-pattern>
-	</servlet-mapping>
-
-
 
 
 </web-app>

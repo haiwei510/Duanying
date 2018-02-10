@@ -13,7 +13,7 @@
 		</commentGenerator>
 		
 		<!--数据库链接URL，用户名、密码 -->
-		<jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://47.104.107.57:3306/test" userId="root" password="hai!7795664WEI">
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://127.0.0.1:3306/test" userId="root" password="hai7795664">
 		</jdbcConnection>
 		<javaTypeResolver>
 			<property name="forceBigDecimals" value="false"/>
@@ -26,7 +26,7 @@
 		</javaModelGenerator>
 		
 		<!-- 生成映射文件的包名和位置-->
-		<sqlMapGenerator targetPackage="com.duanying.dao" targetProject="Duanying">
+		<sqlMapGenerator targetPackage="com.duanying.dao.mapping" targetProject="Duanying">
 			<property name="enableSubPackages" value="true"/>
 		</sqlMapGenerator>
 		
@@ -36,7 +36,7 @@
 		</javaClientGenerator>
 		
 		<!-- 要生成哪些表-->
-		<table  schema ="users" tableName="t_user" domainObjectName="Users" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+		<table  tableName="t_week_ticket" domainObjectName="WeekTicket" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
 			
 		</table>
 	</context>

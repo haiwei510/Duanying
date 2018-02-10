@@ -12,7 +12,29 @@
 
 
 	<!-- spring可以自动去扫描base-pack下面的包或子包下面的java文件，如果扫描到有spring的相关注解的类，则把这些类注册为Spring的bean -->
-	<context:component-scan base-package="com.duanying.controller"></context:component-scan>
+	<context:component-scan base-package="com.duanying"></context:component-scan>
+	<bean class="com.duanying.access.CorsConfigurerAdapter"></bean>
+
+	<!-- <mvc:annotation-driven /> -->
+	<!-- <mvc:default-servlet-handler /> -->
+
+	<!-- API 接口跨域配置 -->
+	<mvc:cors>
+		<mvc:mapping path="/*" allowed-origins="*"
+			allowed-methods="POST, GET, OPTIONS, DELETE, PUT"
+			allowed-headers="Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
+			allow-credentials="true" />
+	</mvc:cors>
+
+
+	<mvc:annotation-driven>
+		<!-- 消息转换器 -->
+		<mvc:message-converters register-defaults="true">
+			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+				<property name="supportedMediaTypes" value="text/html;charset=UTF-8" />
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
 
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
