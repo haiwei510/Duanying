@@ -20,12 +20,11 @@
 
 	<!-- API 接口跨域配置 -->
 	<mvc:cors>
-		<mvc:mapping path="/*" allowed-origins="*"
+		<mvc:mapping path="/com.duanying.controller/**" allowed-origins="*"
 			allowed-methods="POST, GET, OPTIONS, DELETE, PUT"
 			allowed-headers="Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"
 			allow-credentials="true" />
 	</mvc:cors>
-
 
 	<mvc:annotation-driven>
 		<!-- 消息转换器 -->
