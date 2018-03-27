@@ -32,8 +32,10 @@
 	<select id="updateLeast" resultMap="BaseResultMap">
 		SELECT b.*,u.author_name AS
 		author_name,t.type_name AS type_name
-		FROM t_book b,t_author u,t_book_type t
-		WHERE book_status='连载中' AND b.type_id = t.id AND u.id=b.author_id LIMIT
+		FROM t_book b,t_author
+		u,t_book_type t
+		WHERE book_status='连载中' AND b.type_id = t.id AND
+		u.id=b.author_id LIMIT
 		100,20
 	</select>
 	<!--人气连载 -->
@@ -81,7 +83,7 @@
 	<select id="selectByPrimaryKey" parameterType="java.lang.Integer"
 		resultMap="BaseResultMap">
 		select
-		<include refid="Base_Column_List" />
+		*
 		from t_book
 		where id = #{id,jdbcType=INTEGER}
 	</select>
@@ -113,9 +115,9 @@
 		(SELECT t.type_name,b.* FROM t_book b,t_book_type t
 		WHERE b.type_id=t.id
 		AND(type_id = 48 OR type_id = 39) LIMIT 0,5)
-		UNION
-		(SELECT t.type_name,b.* FROM t_book b,t_book_type t ORDER BY read_num
-		LIMIT 3)
+<!-- 		UNION -->
+<!-- 		(SELECT t.type_name,b.* FROM t_book b,t_book_type t ORDER BY read_num -->
+<!-- 		LIMIT 3) -->
 	</select>
 	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
 		delete from t_book

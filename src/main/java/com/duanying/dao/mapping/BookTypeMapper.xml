@@ -9,9 +9,14 @@
 		<result column="type_parent" jdbcType="INTEGER" property="typeParent" />
 	</resultMap>
 	<sql id="Base_Column_List">
-
 		id, type_name, type_parent
 	</sql>
+	
+	<select id="selecToptAll" parameterType="com.duanying.model.BookTypeKey"
+		resultMap="BaseResultMap">
+		SELECT * FROM t_book_type WHERE type_parent = 0
+	</select>
+	
 	<select id="selectAll" parameterType="com.duanying.model.BookTypeKey"
 		resultMap="BaseResultMap">
 		select

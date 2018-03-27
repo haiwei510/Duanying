@@ -187,7 +187,7 @@ public class BookServiceImpl implements BookService {
 				list.get(i).setChapter(chapter);
 			} else {
 				//获取最新章节
-				Chapter chapter = chapterServiceImpl.getLeast(list.get(i).getLastestChapter());
+				Chapter chapter = chapterServiceImpl.getLeast(list.get(i).getId());
 				list.get(i).setChapter(chapter);
 			}
 
@@ -202,7 +202,16 @@ public class BookServiceImpl implements BookService {
 	 */
 	@Override
 	public BookDto getBookInfo(int id) {
-		return bookMapper.selectByPrimaryKey(id);
+		BookDto bookDto = bookMapper.selectByPrimaryKey(id);
+		if(bookDto.getWeekTicket()==null) {
+			bookDto.setWeekTicket(0);
+		}
+		
+		if(bookDto.getMonthTicket()==null) {
+			bookDto.setMonthTicket(0);
+		}
+		
+		return bookDto;
 	}
 
 }

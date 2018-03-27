@@ -1,9 +1,21 @@
 package com.duanying.dao;
 
+import java.util.List;
+
 import com.duanying.model.Chapter;
 
 public interface ChapterMapper {
 	
+	/**
+	 * 获取某本书的所有章节
+	 */
+	List<Chapter> getChaptrAllByBook(int id);
+	
+	/**
+	 * 获取最新章节
+	 * @param id
+	 * @return
+	 */
 	Chapter chapterLeast(int id);
 	
     /**
