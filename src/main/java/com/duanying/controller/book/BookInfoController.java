@@ -37,21 +37,21 @@ public class BookInfoController {
 		//response.setHeader("Access-Control-Allow-Credentials", "true");
 
 		Map<String, Object> map = new HashMap<String, Object>();
-		// ÈÈÄÖ·ÖÀà
+		// çƒ­é—¹åˆ†ç±»
 		map.put("hotType", bookservice.getlist());
-		// ÔÂ°ñ
+		// æœˆæ¦œ
 		map.put("month", bookservice.getMonthTop());
-		// ÖÜ°ñ
+		// å‘¨æ¦œGIT
 		map.put("week", bookservice.getWeekTop());
-		// ±à¼­ÍÆ¼ö
+		// ç¼–è¾‘æ¨è
 		map.put("editer", bookservice.getEditerRecom());
-		// ÑÔÇéÌØ±ğÍÆ¼ö
+		// è¨€æƒ…ç‰¹åˆ«æ¨è
 		map.put("remantic", bookservice.getRomantic());
-		// ÑÔÇéÌØ±ğÍÆ¼ö
+		// è¨€æƒ…ç‰¹åˆ«æ¨è
 		map.put("bookOver", bookservice.getBookOver());
-		// ÑÔÇéÌØ±ğÍÆ¼ö
+		// è¨€æƒ…ç‰¹åˆ«æ¨è
 		map.put("writeing", bookservice.getHotWriteing());
-		// ×îĞÂÕÂ½Ú
+		// æœ€æ–°ç« èŠ‚
 		map.put("leastChapter", bookservice.getUpdateLeast());
 
 		String json = JSON.toJSONString(map);
@@ -65,7 +65,7 @@ public class BookInfoController {
 	
 	
 	/**
-	 * Êé±¾ÏêÏ¸ĞÅÏ¢
+	 * ä¹¦æœ¬è¯¦ç»†ä¿¡æ¯
 	 * @param request
 	 * @param response
 	 * @return
@@ -77,12 +77,12 @@ public class BookInfoController {
 
 		Map<String, Object> map = new HashMap<String, Object>();
 		int bookId = Integer.parseInt(request.getParameter("bookId"));
-		// Êé±¾»ù±¾ĞÅÏ¢
+		// ä¹¦æœ¬åŸºæœ¬ä¿¡æ¯
 		BookDto bookDto = bookservice.getBookInfo(bookId);		
 		map.put("book",bookDto);
-		// ÊéÕÂ½Ú
+		// ä¹¦ç« èŠ‚
 		map.put("chapter", chapterService.getAllChapterById(bookId));
-		// ×îĞÂÕÂ½Ú		
+		// æœ€æ–°ç« èŠ‚		
 		map.put("leastChapter", chapterService.getLeast(bookId));
 		
 		String json = JSON.toJSONString(map);
@@ -90,7 +90,7 @@ public class BookInfoController {
 	}
 	
 	/**
-	 * »ñÈ¡ÕÂ½ÚÄÚÈİ
+	 * è·å–ç« èŠ‚å†…å®¹
 	 * @param request
 	 * @param response
 	 * @return
@@ -106,7 +106,7 @@ public class BookInfoController {
 	}
 	
 	/**
-	 * »ñÈ¡·ÖÀà
+	 * è·å–åˆ†ç±»
 	 * @param request
 	 * @param response
 	 * @return
